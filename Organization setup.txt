@@ -1,0 +1,105 @@
+Équipe Hotel
+
+Fehizoro :
+Responsable de :
+Hotel
+Attributs de la classe
+
+Constructeurs
+
+Getters/Setters
+
+toString()
+
+
+
+Exemple :
+
+private String nom;
+private String adresse;
+private List<Chambre> chambres;
+Personne 2 — Logique métier Hotel
+
+Emmanuel
+Responsable de :
+
+HotelService
+Fonctionnalités :
+
+ajouterChambre()
+
+supprimerChambre()
+
+rechercherChambre()
+
+compterChambresDisponibles()
+
+afficherInformationsHotel()
+
+Cette personne définit également les signatures des méthodes utilisées par les autres membres.
+
+Équipe Chambre
+
+Santatra
+Responsable de :
+
+Chambre
+TypeChambre
+Attributs
+
+Constructeurs
+
+Getters/Setters
+
+toString()
+
+Enumérations
+
+Personne 4 — Logique métier Chambre
+Responsable de :
+
+ChambreService
+Fonctionnalités :
+
+changerDisponibilite()
+
+modifierPrix()
+
+verifierDisponibilite()
+
+filtrerParType()
+
+filtrerParPrix()
+
+Organisation Agile
+
+
+Mardi
+Développement des classes Hotel et Chambre
+attibuts obligatoires + au moins 2 méthodes testées (JUNIT)
+Revue de code croisée
+
+Mercredi
+Développement des services
+
+Tests unitaires
+
+Jeudi
+Fusion Git
+
+Correction des bugs
+
+Livrable attendu jeudi
+model/
+ ├── Hotel.java
+ ├── Chambre.java
+ └── TypeChambre.java
+
+service/
+ ├── HotelService.java
+ └── ChambreService.java
+
+ Si travail fini, testée et mergée avant jeudi :
+ organiser et développer la classe réservation.
+ les attributs et les méthodes.
+ les test unitaires.

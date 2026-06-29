@@ -1,162 +1,112 @@
-Hotel
-Attributs :
+# SimulationProg2 - Projet Hotel
 
-* nom
-* adresse
-* telephone
-* chambres : List<Chambre>
-* clients : List<Client>
-* reservations : List<Reservation>
+Ce depot contient un projet de simulation de gestion hoteliere base sur un diagramme UML.
 
-Méthodes :
+Le code Java est organise dans un sous-projet Maven :
 
-* ajouterChambre(Chambre)
-* supprimerChambre(int numero)
-* ajouterClient(Client)
-* ajouterReservation(Reservation)
-* rechercherChambreDisponible(TypeChambre)
-* afficherInformations()
+```text
+simulationProg2/
+├── README.md
+├── UML_structure.png
+└── projet_hotel/
+    ├── pom.xml
+    └── src/
+        ├── main/
+        │   └── java/
+        │       └── mg/
+        │           └── hotel/
+        │               └── Main.java
+        └── test/
+            └── java/
+                └── mg/
+                    └── hotel/
+                        └── MainTest.java
+```
 
-Chambre
-Attributs :
+## Ouvrir le projet
 
-* numero
-* type : TypeChambre
-* prixParNuit
-* statut : StatutChambre
+Dans IntelliJ IDEA, ouvrir le dossier Maven :
 
-Méthodes :
+```text
+/home/santatra/Bureau/simulationProg2/projet_hotel
+```
 
-* reserver()
-* liberer()
-* mettreEnMaintenance()
-* estDisponible()
-* afficherDetails()
+Si IntelliJ le demande, cliquer sur `Load Maven Project`.
 
-Client
-Attributs :
+## Configuration Maven
 
-* idClient
-* nom
-* prenom
-* telephone
-* email
+Le fichier Maven principal est :
 
-Méthodes :
+```text
+projet_hotel/pom.xml
+```
 
-* modifierInformations()
-* afficherProfil()
+Le projet utilise :
 
-Reservation
-Attributs :
+- Java 17
+- Maven
+- JUnit 5 pour les tests
 
-* idReservation
-* client : Client
-* chambre : Chambre
-* dateArrivee
-* dateDepart
-* statut : StatutReservation
+## Lancer le programme
 
-Méthodes :
+Classe principale :
 
-* confirmerReservation()
-* annulerReservation()
-* terminerReservation()
-* calculerMontant()
-* afficherReservation()
+```text
+projet_hotel/src/main/java/mg/hotel/Main.java
+```
 
-Paiement
-Attributs :
+Depuis IntelliJ, lancer la classe `mg.hotel.Main`.
 
-* idPaiement
-* reservation : Reservation
-* montant
-* datePaiement
-* modePaiement
+En terminal, si Maven est installe :
 
-Méthodes :
+```bash
+cd projet_hotel
+mvn compile
+```
 
-* effectuerPaiement()
-* genererRecu()
-* afficherPaiement()
+## Lancer les tests
 
-Personne (optionnel)
-Attributs :
+Les tests sont dans :
 
-* nom
-* prenom
-* telephone
-* email
+```text
+projet_hotel/src/test/java
+```
 
-Méthodes :
+Commande :
 
-* afficherInformations()
+```bash
+cd projet_hotel
+mvn test
+```
 
-Employe (optionnel)
-Attributs :
+Note : si la commande `mvn` affiche `command not found`, Maven n'est pas installe sur le PC ou n'est pas disponible dans le `PATH`.
 
-* idEmploye
-* poste
-* salaire
+## Structure Java prevue
 
-Méthodes :
+Pour implementer le diagramme UML, les packages suivants sont conseilles :
 
-* afficherInformations()
-* modifierSalaire()
+```text
+mg.hotel.enums
+mg.hotel.model
+mg.hotel.exception
+mg.hotel.transaction
+mg.hotel.service
+```
 
-GestionChambre
-Attributs :
+Repartition conseillee :
 
-* chambres : List<Chambre>
+- `mg.hotel.enums` : `StatutChambre`, `TypeChambre`, `Poste`, `Fonction`, `FournitureDeChambre`
+- `mg.hotel.model` : `Espace`, `Hotel`, `Chambre`, `Personne`, `Client`, `Employe`, `Equipe`, `ChefDEquipe`
+- `mg.hotel.transaction` : `Transaction`, `Reservation`, `Sejour`, `Paiement`, `Historique`, `LogTransaction`
+- `mg.hotel.service` : `GestionnaireChambre`, `GestionnaireReservation`, `GestionnaireClient`, `GestionnairePaiement`, `GestionnaireSejour`, `GestionnaireEmploye`
+- `mg.hotel.exception` : `HotelException`, `ChambreIndisponibleException`, `ReservationInvalideException`, `TransactionNonAutorisee`
 
-Méthodes :
+## Etat actuel
 
-* ajouterChambre(Chambre)
-* supprimerChambre(int numero)
-* rechercherChambre(int numero)
-* listerChambresDisponibles()
+Le projet Maven est initialise avec :
 
-GestionReservation
-Attributs :
+- une classe `Main` minimale ;
+- un test JUnit minimal ;
+- une configuration Maven prete pour ajouter les classes du diagramme UML.
 
-* reservations : List<Reservation>
-
-Méthodes :
-
-* ajouterReservation(Reservation)
-* annulerReservation(int idReservation)
-* rechercherReservation(int idReservation)
-* listerReservations()
-
-GestionClient
-Attributs :
-
-* clients : List<Client>
-
-Méthodes :
-
-* ajouterClient(Client)
-* supprimerClient(int idClient)
-* rechercherClient(int idClient)
-* listerClients()
-
-GestionPaiement
-Attributs :
-
-* paiements : List<Paiement>
-
-Méthodes :
-
-* ajouterPaiement(Paiement)
-* rechercherPaiement(int idPaiement)
-* listerPaiements()
-
-ChambreIndisponibleException
-Méthodes :
-
-* ChambreIndisponibleException(String message)
-
-ReservationInvalideException
-Méthodes :
-
-* ReservationInvalideException(String message)
+La prochaine etape est d'ajouter les enums et les classes Java du diagramme UML dans les packages correspondants.

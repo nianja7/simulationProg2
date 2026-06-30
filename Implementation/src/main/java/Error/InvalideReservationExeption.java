@@ -1,7 +1,11 @@
 package Error;
 
-public class InvalideReservationExeption extends RuntimeException {
-    public InvalideReservationExeption(String message) {
-        super(message);
+import Person.Person;
+import lombok.Getter;
+
+@Getter
+public class InvalideReservationExeption extends HotelExeption {
+    public InvalideReservationExeption(Person culprit, Object target, String message, String description) {
+        super(culprit, target, message, description);
     }
 }

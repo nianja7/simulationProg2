@@ -2,10 +2,18 @@ package Transaction;
 
 import java.time.LocalDate;
 import Enum.StayStatus;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
-public class Stay extends Transaction{
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+public class Stay extends Transaction {
     private int compagnionNumber;
     private LocalDate arrivalDate;
-    private LocalDate SettingDate;
+    private LocalDate SettingDate; // Date d'établissement / check-out
     private StayStatus status;
 }

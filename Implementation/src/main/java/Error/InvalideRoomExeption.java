@@ -1,7 +1,11 @@
 package Error;
 
-public class InvalideRoomExeption extends RuntimeException {
-    public InvalideRoomExeption(String message) {
-        super(message);
+import Person.Person;
+import lombok.Getter;
+
+@Getter
+public class InvalideRoomExeption extends HotelExeption {
+    public InvalideRoomExeption(Person culprit, Object target, String message, String description) {
+        super(culprit, target, message, description);
     }
 }

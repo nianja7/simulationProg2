@@ -17,5 +17,6 @@ public class Room {
     private double nightFee;
     private RoomStatus status;
     private List<Client> guests;
+    private List<RoomFeatures> roomFeaturesList;
 
 }

@@ -12,4 +12,5 @@ public class Employee extends Person{
     private String idEmployee;
     private Post post;
     private double salary;
+    private Function function;
 }
